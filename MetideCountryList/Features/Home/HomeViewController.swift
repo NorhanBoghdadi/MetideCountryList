@@ -21,8 +21,8 @@ class HomeViewController: UIViewController {
         countriesTableView = UITableView()
         countriesTableView.translatesAutoresizingMaskIntoConstraints = false
         countriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIden)
-//        countriesTableView.delegate = self
-//        countriesTableView.dataSource = self
+        countriesTableView.delegate = self
+        countriesTableView.dataSource = self
         view.addSubview(countriesTableView)
         
         setupConstraints()
@@ -38,6 +38,30 @@ class HomeViewController: UIViewController {
     }
 
 
+}
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel!.numberOfCountries
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = countriesTableView.dequeueReusableCell(withIdentifier: reuseIden)
+        cell!.layer.borderColor = UIColor(white: 0.7, alpha: 0.2).cgColor
+        cell!.layer.borderWidth = 2
+        cell!.layer.cornerRadius = 10
+        cell!.backgroundColor = UIColor(white: 0.7, alpha: 0.2)
+        cell!.textLabel?.textColor = .black
+        
+        let data = viewModel?.data(for: indexPath)
+        cell?.textLabel?.text = data?.name
+        return cell!
+        
+    }
+    
+    
+}
+extension HomeViewController: UITableViewDelegate {
+    
 }
 
 extension HomeViewController: NotifaiableController {
