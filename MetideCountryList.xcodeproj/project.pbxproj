@@ -14,6 +14,9 @@
 		512E7432270724FC00754F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512E7430270724FC00754F45 /* LaunchScreen.storyboard */; };
 		512E743D270724FC00754F45 /* MetideCountryListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E743C270724FC00754F45 /* MetideCountryListTests.swift */; };
 		512E7448270724FC00754F45 /* MetideCountryListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E7447270724FC00754F45 /* MetideCountryListUITests.swift */; };
+		512E746327072B0600754F45 /* ViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E746227072B0600754F45 /* ViewModelProtocols.swift */; };
+		512E746C27072C3400754F45 /* CountriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E746B27072C3400754F45 /* CountriesList.swift */; };
+		512E747427072FBB00754F45 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E747327072FBB00754F45 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		512E7443270724FC00754F45 /* MetideCountryListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetideCountryListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		512E7447270724FC00754F45 /* MetideCountryListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetideCountryListUITests.swift; sourceTree = "<group>"; };
 		512E7449270724FC00754F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		512E746227072B0600754F45 /* ViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocols.swift; sourceTree = "<group>"; };
+		512E746B27072C3400754F45 /* CountriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesList.swift; sourceTree = "<group>"; };
+		512E747327072FBB00754F45 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,9 @@
 		512E7424270724F900754F45 /* MetideCountryList */ = {
 			isa = PBXGroup;
 			children = (
+				512E745F27072A6B00754F45 /* Features */,
 				512E7425270724F900754F45 /* AppDelegate.swift */,
 				512E7427270724F900754F45 /* SceneDelegate.swift */,
-				512E7429270724F900754F45 /* HomeViewController.swift */,
 				512E742E270724FC00754F45 /* Assets.xcassets */,
 				512E7430270724FC00754F45 /* LaunchScreen.storyboard */,
 				512E7433270724FC00754F45 /* Info.plist */,
@@ -123,6 +129,41 @@
 				512E7449270724FC00754F45 /* Info.plist */,
 			);
 			path = MetideCountryListUITests;
+			sourceTree = "<group>";
+		};
+		512E745F27072A6B00754F45 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				512E746A27072C0300754F45 /* Info */,
+				512E746027072A9000754F45 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		512E746027072A9000754F45 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				512E7429270724F900754F45 /* HomeViewController.swift */,
+				512E746B27072C3400754F45 /* CountriesList.swift */,
+				512E746127072AEA00754F45 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		512E746127072AEA00754F45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				512E746227072B0600754F45 /* ViewModelProtocols.swift */,
+				512E747327072FBB00754F45 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		512E746A27072C0300754F45 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				512E746327072B0600754F45 /* ViewModelProtocols.swift in Sources */,
+				512E747427072FBB00754F45 /* HomeViewModel.swift in Sources */,
+				512E746C27072C3400754F45 /* CountriesList.swift in Sources */,
 				512E742A270724F900754F45 /* HomeViewController.swift in Sources */,
 				512E7426270724F900754F45 /* AppDelegate.swift in Sources */,
 				512E7428270724F900754F45 /* SceneDelegate.swift in Sources */,
