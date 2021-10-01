@@ -11,16 +11,17 @@ class HomeViewModel: ViewModel {
     var viewController: DataLoaderController?
     
     var numberOfCountries: Int = 0
+    var countriesList = [CountiresList]()
     
     init(viewController: DataLoaderController) {
         self.viewController = viewController
         DispatchQueue.main.async {
-            <#code#>
+            viewController?.dataLoaded()
         }
     }
     
     func data(for cellAt: IndexPath) -> CountiresList {
-        <#code#>
+        countriesList[cellAt.row]
     }
     
     
