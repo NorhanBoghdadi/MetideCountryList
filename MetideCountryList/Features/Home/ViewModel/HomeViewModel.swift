@@ -9,9 +9,9 @@ import Foundation
 
 class HomeViewModel: ViewModel {
     var viewController: DataLoaderController?
-    
     var numberOfCountries: Int = 0
     var countriesList = [CountiresList]()
+    
     
     init(viewController: DataLoaderController) {
         self.viewController = viewController
@@ -23,6 +23,7 @@ class HomeViewModel: ViewModel {
     func data(for cellAt: IndexPath) -> CountiresList {
         countriesList[cellAt.row]
     }
+    
     
     
 }

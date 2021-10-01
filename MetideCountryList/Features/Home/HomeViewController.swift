@@ -32,7 +32,8 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             countriesTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             countriesTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            countriesTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor)
+            countriesTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            countriesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 
