@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         viewModel = HomeViewModel(viewController: self)
         
+        
         countriesTableView = UITableView()
         countriesTableView.translatesAutoresizingMaskIntoConstraints = false
         countriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIden)
