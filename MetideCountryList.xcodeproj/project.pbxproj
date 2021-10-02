@@ -17,6 +17,9 @@
 		512E746327072B0600754F45 /* ViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E746227072B0600754F45 /* ViewModelProtocols.swift */; };
 		512E746C27072C3400754F45 /* CountriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E746B27072C3400754F45 /* CountriesList.swift */; };
 		512E747427072FBB00754F45 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512E747327072FBB00754F45 /* HomeViewModel.swift */; };
+		51AE575A2708691700FF9E6F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE57592708691700FF9E6F /* ImageLoader.swift */; };
+		51AE57622708857D00FF9E6F /* UIimageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE57612708857D00FF9E6F /* UIimageView+Download.swift */; };
+		51AE5767270885A800FF9E6F /* UIimage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE5766270885A800FF9E6F /* UIimage+resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		512E746227072B0600754F45 /* ViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocols.swift; sourceTree = "<group>"; };
 		512E746B27072C3400754F45 /* CountriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesList.swift; sourceTree = "<group>"; };
 		512E747327072FBB00754F45 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		51AE57592708691700FF9E6F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		51AE57612708857D00FF9E6F /* UIimageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimageView+Download.swift"; sourceTree = "<group>"; };
+		51AE5766270885A800FF9E6F /* UIimage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				512E742E270724FC00754F45 /* Assets.xcassets */,
 				512E7430270724FC00754F45 /* LaunchScreen.storyboard */,
 				512E7433270724FC00754F45 /* Info.plist */,
+				51AE57592708691700FF9E6F /* ImageLoader.swift */,
+				51AE57612708857D00FF9E6F /* UIimageView+Download.swift */,
+				51AE5766270885A800FF9E6F /* UIimage+resize.swift */,
 			);
 			path = MetideCountryList;
 			sourceTree = "<group>";
@@ -295,12 +304,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51AE575A2708691700FF9E6F /* ImageLoader.swift in Sources */,
 				512E746327072B0600754F45 /* ViewModelProtocols.swift in Sources */,
 				512E747427072FBB00754F45 /* HomeViewModel.swift in Sources */,
 				512E746C27072C3400754F45 /* CountriesList.swift in Sources */,
+				51AE57622708857D00FF9E6F /* UIimageView+Download.swift in Sources */,
 				512E742A270724F900754F45 /* HomeViewController.swift in Sources */,
 				512E7426270724F900754F45 /* AppDelegate.swift in Sources */,
 				512E7428270724F900754F45 /* SceneDelegate.swift in Sources */,
+				51AE5767270885A800FF9E6F /* UIimage+resize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

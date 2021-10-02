@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     var viewModel: ViewModel?
     var countriesTableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,6 +38,7 @@ class HomeViewController: UIViewController {
             countriesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    
 
 
 }
@@ -55,6 +57,9 @@ extension HomeViewController: UITableViewDataSource {
         
         let data = viewModel?.data(for: indexPath)
         cell?.textLabel?.text = data?.name
+        try? cell?.imageView?.setImage(url: data!.flag, placeHolder: UIImage(named: "loading")!)
+        cell?.imageView?.contentMode = .scaleAspectFit
+        cell?.imageView?.clipsToBounds = true
         return cell!
         
     }
