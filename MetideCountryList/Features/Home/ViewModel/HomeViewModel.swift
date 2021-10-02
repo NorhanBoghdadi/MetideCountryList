@@ -5,9 +5,8 @@
 //  Created by Norhan Boghdadi on 10/1/21.
 //
 
-import Foundation
-
-
+import UIKit
+import CoreLocation
 
 class HomeViewModel: ViewModel {
     
@@ -15,6 +14,7 @@ class HomeViewModel: ViewModel {
         countriesList.count
     }
     
+    let metLocation = CLLocation(latitude: 45.5106775, longitude: 12.2321666)
     
     var viewController: DataLoaderController?
     
@@ -24,7 +24,7 @@ class HomeViewModel: ViewModel {
     
     init(viewController: DataLoaderController) {
         self.viewController = viewController
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [self] in
             viewController?.dataLoaded()
         }
         make(request: dataUrl!)
@@ -66,7 +66,30 @@ class HomeViewModel: ViewModel {
     
     func process(data: Data) throws ->  [CountiresList] {
         let jsonData = try JSONDecoder().decode([CountiresList].self, from: data)
-        return jsonData
+        return sort(arr: jsonData)
+    }
+    
+    //MARK: - Calculate distance between country and the Metide Location
+    func calculateDistance(country: CLLocation, office: CLLocation) -> Int {
+         Int(country.distance(from: office))
+    }
+    //MARK: - Calculate Location coordiantes from set of strings.
+    
+    func getLocation(lat: String, long: String) -> CLLocation {
+
+        CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
+        
+
+    }
+    
+
+    
+    //MARK: - Sorting the array geographiclly
+    func sort(arr: [CountiresList]) -> [CountiresList] {
+        return arr.sorted {
+
+            calculateDistance(country: getLocation(lat: $0.latitude ?? "0.0", long: $0.longitude ?? "0.0"), office: metLocation) < calculateDistance(country: getLocation(lat: $1.latitude ?? "0.0", long: $1.longitude ?? "0.0"), office: metLocation)
+        }
     }
     
     

@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeViewController: UIViewController {
 
     let reuseIden = "table Iden"
     var viewModel: ViewModel?
     var countriesTableView: UITableView!
-    
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,9 @@ class HomeViewController: UIViewController {
         countriesTableView.dataSource = self
         view.addSubview(countriesTableView)
         
+        refreshControl.addTarget(self, action: #selector(refreshCountryList(_:)), for: .valueChanged)
+        countriesTableView.addSubview(refreshControl)
+        
         setupConstraints()
     }
     //MARK: - Setup Constraints for the tableview.
@@ -38,10 +42,15 @@ class HomeViewController: UIViewController {
             countriesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    //MARK: - Pull-Refresh Func.
+    @objc private func refreshCountryList(_ sender: Any) {
+        dataLoaded()
+    }
     
 
 
 }
+//MARK: - TableView DataSource& Delegate
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel!.numberOfCountries
@@ -67,12 +76,19 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+       
+        countriesTableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 }
+
+//MARK: - Extension for the protocols.
 
 extension HomeViewController: NotifaiableController {
     func dataLoaded() {
         countriesTableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
 }

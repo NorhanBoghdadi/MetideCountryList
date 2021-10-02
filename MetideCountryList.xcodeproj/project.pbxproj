@@ -20,6 +20,7 @@
 		51AE575A2708691700FF9E6F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE57592708691700FF9E6F /* ImageLoader.swift */; };
 		51AE57622708857D00FF9E6F /* UIimageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE57612708857D00FF9E6F /* UIimageView+Download.swift */; };
 		51AE5767270885A800FF9E6F /* UIimage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE5766270885A800FF9E6F /* UIimage+resize.swift */; };
+		51AE576C27088D6400FF9E6F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE576B27088D6400FF9E6F /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		51AE57592708691700FF9E6F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		51AE57612708857D00FF9E6F /* UIimageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimageView+Download.swift"; sourceTree = "<group>"; };
 		51AE5766270885A800FF9E6F /* UIimage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+resize.swift"; sourceTree = "<group>"; };
+		51AE576B27088D6400FF9E6F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		512E746A27072C0300754F45 /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				51AE576B27088D6400FF9E6F /* InfoViewController.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				512E746327072B0600754F45 /* ViewModelProtocols.swift in Sources */,
 				512E747427072FBB00754F45 /* HomeViewModel.swift in Sources */,
 				512E746C27072C3400754F45 /* CountriesList.swift in Sources */,
+				51AE576C27088D6400FF9E6F /* InfoViewController.swift in Sources */,
 				51AE57622708857D00FF9E6F /* UIimageView+Download.swift in Sources */,
 				512E742A270724F900754F45 /* HomeViewController.swift in Sources */,
 				512E7426270724F900754F45 /* AppDelegate.swift in Sources */,
