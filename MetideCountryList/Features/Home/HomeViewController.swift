@@ -69,17 +69,24 @@ extension HomeViewController: UITableViewDataSource {
         try? cell?.imageView?.setImage(url: data!.flag, placeHolder: UIImage(named: "loading")!)
         cell?.imageView?.contentMode = .scaleAspectFit
         cell?.imageView?.clipsToBounds = true
+        
         return cell!
         
     }
+   
     
     
 }
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         countriesTableView.deselectRow(at: indexPath, animated: true)
         
+        let data = viewModel?.data(for: indexPath)
+        let infoVC = InfoViewController()
+        infoVC.countryName = data!.nameOfficial
+        infoVC.flagUrl = data!.flag
+        present(infoVC, animated: true, completion: nil)
     }
 }
 

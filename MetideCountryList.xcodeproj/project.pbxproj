@@ -111,15 +111,13 @@
 		512E7424270724F900754F45 /* MetideCountryList */ = {
 			isa = PBXGroup;
 			children = (
-				512E745F27072A6B00754F45 /* Features */,
 				512E7425270724F900754F45 /* AppDelegate.swift */,
 				512E7427270724F900754F45 /* SceneDelegate.swift */,
+				518738312709C50300B00298 /* Shared */,
+				512E745F27072A6B00754F45 /* Features */,
 				512E742E270724FC00754F45 /* Assets.xcassets */,
 				512E7430270724FC00754F45 /* LaunchScreen.storyboard */,
 				512E7433270724FC00754F45 /* Info.plist */,
-				51AE57592708691700FF9E6F /* ImageLoader.swift */,
-				51AE57612708857D00FF9E6F /* UIimageView+Download.swift */,
-				51AE5766270885A800FF9E6F /* UIimage+resize.swift */,
 			);
 			path = MetideCountryList;
 			sourceTree = "<group>";
@@ -176,6 +174,16 @@
 				51AE576B27088D6400FF9E6F /* InfoViewController.swift */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		518738312709C50300B00298 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				51AE57592708691700FF9E6F /* ImageLoader.swift */,
+				51AE57612708857D00FF9E6F /* UIimageView+Download.swift */,
+				51AE5766270885A800FF9E6F /* UIimage+resize.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,21 +10,24 @@ import CoreLocation
 
 class HomeViewModel: ViewModel {
     
+    //MARK: - Declerations
+    var viewController: DataLoaderController?
+    
+    var countriesList = [CountiresList]()
+    
+    //MARK: - Variables
     var numberOfCountries: Int {
         countriesList.count
     }
     
     let metLocation = CLLocation(latitude: 45.5106775, longitude: 12.2321666)
     
-    var viewController: DataLoaderController?
-    
-    var countriesList = [CountiresList]()
-  
     let dataUrl = URL(string: "https://developer:metide@us-central1-job-interview-cfe5a.cloudfunctions.net/countries")
+    //MARK: - Init
     
     init(viewController: DataLoaderController) {
         self.viewController = viewController
-        DispatchQueue.main.async { [self] in
+        DispatchQueue.main.async {
             viewController?.dataLoaded()
         }
         make(request: dataUrl!)
@@ -78,11 +81,8 @@ class HomeViewModel: ViewModel {
     func getLocation(lat: String, long: String) -> CLLocation {
 
         CLLocation(latitude: Double(lat)!, longitude: Double(long)!)
-        
-
-    }
     
-
+    }
     
     //MARK: - Sorting the array geographiclly
     func sort(arr: [CountiresList]) -> [CountiresList] {
