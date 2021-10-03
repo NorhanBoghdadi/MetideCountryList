@@ -5,22 +5,23 @@
 //  Created by Norhan Boghdadi on 10/1/21.
 //
 
+   
 import XCTest
 
 class MetideCountryListUITests: XCTestCase {
    
-    let app = XCUIApplication()
-    
-    override class func setUp() {
-        super.setUp()
-       
+    var app: XCUIApplication!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
     }
     
-    override class func tearDown() {
-        <#code#>
-    }
-    
-    func testSnapShot() {
+    func testView() throws {
+        app = XCUIApplication()
+        app.launch()
+        let table = app.tables["table--countriesTableView"]
+        XCTAssertTrue(table.exists, "Countries TableView exists." )
         
     }
+   
 }

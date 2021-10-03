@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         countriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIden)
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
+        countriesTableView.accessibilityIdentifier = "table--countriesTableView"
         view.addSubview(countriesTableView)
         
         refreshControl.addTarget(self, action: #selector(refreshCountryList(_:)), for: .valueChanged)
