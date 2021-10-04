@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeViewController: UIViewController {
 
     let reuseIden = "table Iden"
     var viewModel: ViewModel?
     var countriesTableView: UITableView!
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,11 @@ class HomeViewController: UIViewController {
         countriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIden)
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
+        countriesTableView.accessibilityIdentifier = "table--countriesTableView"
         view.addSubview(countriesTableView)
+        
+        refreshControl.addTarget(self, action: #selector(refreshCountryList(_:)), for: .valueChanged)
+        countriesTableView.addSubview(refreshControl)
         
         setupConstraints()
     }
@@ -37,9 +43,15 @@ class HomeViewController: UIViewController {
             countriesTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    //MARK: - Pull-Refresh Func.
+    @objc private func refreshCountryList(_ sender: Any) {
+        dataLoaded()
+    }
+    
 
 
 }
+//MARK: - TableView DataSource& Delegate
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel!.numberOfCountries
@@ -55,19 +67,36 @@ extension HomeViewController: UITableViewDataSource {
         
         let data = viewModel?.data(for: indexPath)
         cell?.textLabel?.text = data?.name
+        try? cell?.imageView?.setImage(url: data!.flag, placeHolder: UIImage(named: "loading")!)
+        cell?.imageView?.contentMode = .scaleAspectFit
+        cell?.imageView?.clipsToBounds = true
+        
         return cell!
         
     }
+   
     
     
 }
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        countriesTableView.deselectRow(at: indexPath, animated: true)
+        
+        let data = viewModel?.data(for: indexPath)
+        let infoVC = InfoViewController()
+        infoVC.countryName = data!.nameOfficial
+        infoVC.flagUrl = data!.flag
+        present(infoVC, animated: true, completion: nil)
+    }
 }
+
+//MARK: - Extension for the protocols.
 
 extension HomeViewController: NotifaiableController {
     func dataLoaded() {
         countriesTableView.reloadData()
+        refreshControl.endRefreshing()
     }
     
 }
