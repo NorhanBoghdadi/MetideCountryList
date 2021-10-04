@@ -53,10 +53,15 @@ class Database {
         itemsWriteToDisk()
     }
     func checkEmptiness() -> Bool {
-        if allItems.isEmpty {
+        if (allItems.count == 0) {
             return true
         }
         return false
+    }
+    func addNotes(for item: String, at index: Int) {
+        allItems[index].notes = item
+        itemsWriteToDisk()
+
     }
 
     

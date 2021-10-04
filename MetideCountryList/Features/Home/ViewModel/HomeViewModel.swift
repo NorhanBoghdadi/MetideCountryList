@@ -30,7 +30,7 @@ class HomeViewModel: ViewModel {
         DispatchQueue.main.async {
             viewController.dataLoaded()
         }
-        if Database.shared.checkEmptiness() {
+        if (Database.shared.checkEmptiness()) {
             make(request: dataUrl!)
         }
         else {

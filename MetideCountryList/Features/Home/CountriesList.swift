@@ -13,7 +13,7 @@ struct CountiresList: Codable {
     let flag: String
     let latitude, longitude: String?
     let zoom: String
-    let notes: String?
+    var notes: String? = " "
 
     enum CodingKeys: String, CodingKey {
         case id, enabled
