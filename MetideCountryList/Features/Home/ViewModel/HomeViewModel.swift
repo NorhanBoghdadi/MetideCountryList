@@ -11,7 +11,7 @@ import CoreLocation
 class HomeViewModel: ViewModel {
     
     //MARK: - Declerations
-    var viewController: DataLoaderController?
+    var viewController: NotifaiableController?
     
     var countriesList = [CountiresList]()
     
@@ -25,12 +25,17 @@ class HomeViewModel: ViewModel {
     let dataUrl = URL(string: "https://developer:metide@us-central1-job-interview-cfe5a.cloudfunctions.net/countries")
     //MARK: - Init
     
-    init(viewController: DataLoaderController) {
+    init(viewController: NotifaiableController) {
         self.viewController = viewController
         DispatchQueue.main.async {
-            viewController?.dataLoaded()
+            viewController.dataLoaded()
         }
-        make(request: dataUrl!)
+        if Database.shared.checkEmptiness() {
+            make(request: dataUrl!)
+        }
+        else {
+            countriesList = Database.shared.itemsReadFromDisk()!
+        }
     }
     
     func data(for cellAt: IndexPath) -> CountiresList {
@@ -52,7 +57,7 @@ class HomeViewModel: ViewModel {
         guard let data = respone.0 else { return }
         do {
             countriesList = try process(data: data)
-            viewController??.dataLoaded()
+            viewController?.dataLoaded()
         } catch {
              print(error.localizedDescription)
         }
@@ -69,6 +74,7 @@ class HomeViewModel: ViewModel {
     
     func process(data: Data) throws ->  [CountiresList] {
         let jsonData = try JSONDecoder().decode([CountiresList].self, from: data)
+        Database.shared.changeMode(for: sort(arr: jsonData))
         return sort(arr: jsonData)
     }
     
@@ -84,7 +90,7 @@ class HomeViewModel: ViewModel {
     
     }
     
-    //MARK: - Sorting the array geographiclly
+    //MARK: - Sorting the array geographiclly to closest to Mestre 
     func sort(arr: [CountiresList]) -> [CountiresList] {
         return arr.sorted {
 

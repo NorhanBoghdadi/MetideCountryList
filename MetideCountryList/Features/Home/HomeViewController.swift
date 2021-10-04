@@ -74,7 +74,9 @@ extension HomeViewController: UITableViewDataSource {
         return cell!
         
     }
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (view.frame.height) / 10
+    }
     
     
 }
@@ -98,16 +100,5 @@ extension HomeViewController: NotifaiableController {
         countriesTableView.reloadData()
         refreshControl.endRefreshing()
     }
-    
-}
-extension HomeViewController: LoadableController {
-    func showLoader() {
-        
-    }
-    
-    func hideLoader() {
-        
-    }
-    
     
 }
