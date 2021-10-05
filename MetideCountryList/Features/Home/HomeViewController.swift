@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
         
         countriesTableView = UITableView()
         countriesTableView.translatesAutoresizingMaskIntoConstraints = false
-        countriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIden)
+        countriesTableView.register(CountriesTableViewCell.self, forCellReuseIdentifier: reuseIden)
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
         countriesTableView.accessibilityIdentifier = "table--countriesTableView"
@@ -58,23 +58,28 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = countriesTableView.dequeueReusableCell(withIdentifier: reuseIden)
-        cell!.layer.borderColor = UIColor(white: 0.7, alpha: 0.2).cgColor
-        cell!.layer.borderWidth = 2
-        cell!.layer.cornerRadius = 10
-        cell!.backgroundColor = UIColor(white: 0.7, alpha: 0.2)
-        cell!.textLabel?.textColor = .black
+        let cell = countriesTableView.dequeueReusableCell(withIdentifier: reuseIden) as! CountriesTableViewCell
+        cell.layer.borderColor = UIColor(white: 0.7, alpha: 0.2).cgColor
+        cell.layer.borderWidth = 2
+        cell.layer.cornerRadius = 10
+        cell.backgroundColor = UIColor(white: 0.7, alpha: 0.2)
+        cell.textLabel?.textColor = .black
         
-        let data = viewModel?.data(for: indexPath)
-        cell?.textLabel?.text = data?.name
-        try? cell?.imageView?.setImage(url: data!.flag, placeHolder: UIImage(named: "loading")!)
-        cell?.imageView?.contentMode = .scaleAspectFit
-        cell?.imageView?.clipsToBounds = true
+        var data = (viewModel?.data(for: indexPath))!
+
+        cell.configure(for: data)
         
-        return cell!
+        if(cell.noteTextField.text != " ") {
+            data.notes = cell.noteTextField.text
+//            Database.shared.addNotes(for: cell.noteTextField.text!, at: indexPath.row)
+        }
+        
+        return cell
         
     }
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (view.frame.height) / 10
+    }
     
     
 }
@@ -87,6 +92,8 @@ extension HomeViewController: UITableViewDelegate {
         let infoVC = InfoViewController()
         infoVC.countryName = data!.nameOfficial
         infoVC.flagUrl = data!.flag
+        infoVC.countryLong = data!.longitude ?? " Location is not available."
+        infoVC.countryLat = data!.latitude ?? " "
         present(infoVC, animated: true, completion: nil)
     }
 }
@@ -96,18 +103,8 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController: NotifaiableController {
     func dataLoaded() {
         countriesTableView.reloadData()
+        
         refreshControl.endRefreshing()
     }
-    
-}
-extension HomeViewController: LoadableController {
-    func showLoader() {
-        
-    }
-    
-    func hideLoader() {
-        
-    }
-    
     
 }

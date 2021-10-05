@@ -13,6 +13,7 @@ struct CountiresList: Codable {
     let flag: String
     let latitude, longitude: String?
     let zoom: String
+    var notes: String? = " "
 
     enum CodingKeys: String, CodingKey {
         case id, enabled
@@ -20,7 +21,7 @@ struct CountiresList: Codable {
         case code2L = "code2l"
         case name
         case nameOfficial = "name_official"
-        case flag, latitude, longitude, zoom
+        case flag, latitude, longitude, zoom, notes
     }
 }
 
