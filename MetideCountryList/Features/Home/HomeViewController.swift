@@ -92,6 +92,8 @@ extension HomeViewController: UITableViewDelegate {
         let infoVC = InfoViewController()
         infoVC.countryName = data!.nameOfficial
         infoVC.flagUrl = data!.flag
+        infoVC.countryLong = data!.longitude ?? " Location is not available."
+        infoVC.countryLat = data!.latitude ?? " "
         present(infoVC, animated: true, completion: nil)
     }
 }

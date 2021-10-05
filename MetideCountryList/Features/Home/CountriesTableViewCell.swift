@@ -26,16 +26,14 @@ class CountriesTableViewCell: UITableViewCell {
         
         flagImg = UIImageView()
         flagImg.translatesAutoresizingMaskIntoConstraints = false
-        flagImg.contentMode = .scaleAspectFill
         flagImg.isHidden = false
-        flagImg.layer.cornerRadius = 20
+        flagImg.layer.cornerRadius = 7
         flagImg.clipsToBounds = true
         contentView.addSubview(flagImg)
         
         noteTextField = UITextField()
         noteTextField.translatesAutoresizingMaskIntoConstraints = false
         noteTextField.placeholder = "Enter Your notes"
-//        noteTextField.text = " "
         noteTextField.backgroundColor = UIColor(white: 1, alpha: 0.3)
         contentView.addSubview(noteTextField)
         
@@ -50,8 +48,8 @@ class CountriesTableViewCell: UITableViewCell {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             flagImg.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            flagImg.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
-            flagImg.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.8)
+            flagImg.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.2),
+            flagImg.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.6)
         ])
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
