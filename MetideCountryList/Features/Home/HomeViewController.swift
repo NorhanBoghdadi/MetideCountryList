@@ -59,19 +59,13 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = countriesTableView.dequeueReusableCell(withIdentifier: reuseIden) as! CountriesTableViewCell
-        cell.layer.borderColor = UIColor(white: 0.7, alpha: 0.2).cgColor
-        cell.layer.borderWidth = 2
-        cell.layer.cornerRadius = 10
-        cell.backgroundColor = UIColor(white: 0.7, alpha: 0.2)
-        cell.textLabel?.textColor = .black
         
-        var data = (viewModel?.data(for: indexPath))!
+        guard let data = (viewModel?.data(for: indexPath)) else {return cell}
 
         cell.configure(for: data)
         
         if(cell.noteTextField.text != " ") {
-            data.notes = cell.noteTextField.text
-//            Database.shared.addNotes(for: cell.noteTextField.text!, at: indexPath.row)
+            Database.shared.addNotes(for: cell.noteTextField.text!, at: indexPath.row)
         }
         
         return cell
@@ -85,16 +79,9 @@ extension HomeViewController: UITableViewDataSource {
 }
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        countriesTableView.deselectRow(at: indexPath, animated: true)
+               
+        sendData(indexPath: indexPath)
         
-        let data = viewModel?.data(for: indexPath)
-        let infoVC = InfoViewController()
-        infoVC.countryName = data!.nameOfficial
-        infoVC.flagUrl = data!.flag
-        infoVC.countryLong = data!.longitude ?? " Location is not available."
-        infoVC.countryLat = data!.latitude ?? " "
-        present(infoVC, animated: true, completion: nil)
     }
 }
 
@@ -107,4 +94,17 @@ extension HomeViewController: NotifaiableController {
         refreshControl.endRefreshing()
     }
     
+}
+extension HomeViewController: TransferData {
+    func sendData(indexPath: IndexPath) {
+        let data = viewModel?.data(for: indexPath)
+        let infoVC = InfoViewController()
+        infoVC.countryName = data!.nameOfficial
+        infoVC.flagUrl = data!.flag
+        infoVC.countryLong = data!.longitude ?? " Location is not available."
+        infoVC.countryLat = data!.latitude ?? " "
+        present(infoVC, animated: true, completion: nil)
+    }
+    
+
 }

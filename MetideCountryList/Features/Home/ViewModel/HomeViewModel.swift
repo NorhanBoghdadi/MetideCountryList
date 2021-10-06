@@ -23,6 +23,7 @@ class HomeViewModel: ViewModel {
     let metLocation = CLLocation(latitude: 45.5106775, longitude: 12.2321666)
     
     let dataUrl = URL(string: "https://us-central1-job-interview-cfe5a.cloudfunctions.net/countries")
+    
     //MARK: - Init
     
     init(viewController: NotifaiableController) {
@@ -82,6 +83,7 @@ class HomeViewModel: ViewModel {
     func calculateDistance(country: CLLocation, office: CLLocation) -> Int {
          Int(country.distance(from: office))
     }
+    
     //MARK: - Calculate Location coordiantes from set of strings.
     
     func getLocation(lat: String, long: String) -> CLLocation {

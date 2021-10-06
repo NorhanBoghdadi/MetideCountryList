@@ -20,3 +20,6 @@ protocol ReusableDataViewModel {
 protocol NotifaiableController: AnyObject {
     func dataLoaded()
 }
+protocol TransferData {
+    func sendData(indexPath: IndexPath)
+}
