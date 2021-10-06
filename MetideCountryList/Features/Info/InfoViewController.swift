@@ -39,7 +39,7 @@ class InfoViewController: UIViewController {
         flagImg.center.x = newTopView.bounds.midX
         flagImg.center.y = newTopView.bounds.midY
         flagImg.clipsToBounds = true
-        flagImg.contentMode = .scaleAspectFill
+        flagImg.contentMode = .scaleAspectFit
         flagImg.layer.borderColor = UIColor.darkGray.cgColor
         flagImg.layer.borderWidth = 2.0
         flagImg.backgroundColor = UIColor(white: 0.8, alpha: 0.2)
