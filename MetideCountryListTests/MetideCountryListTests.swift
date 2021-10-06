@@ -19,7 +19,11 @@ class MetideCountryListTests: XCTestCase {
     }
 
     func testExample() throws {
-         
+        class testView: HomeViewModel {
+            
+        }
+        var viewModel = testView(viewController: HomeViewController())
+        XCTAssertEqual(viewModel.sayHello(), "Hello")
     }
 
     func testPerformanceExample() throws {

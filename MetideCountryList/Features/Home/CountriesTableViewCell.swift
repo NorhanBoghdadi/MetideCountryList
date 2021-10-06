@@ -53,7 +53,7 @@ class CountriesTableViewCell: UITableViewCell {
         ])
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: flagImg.trailingAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: flagImg.trailingAnchor, constant: 10),
             nameLabel.widthAnchor.constraint(equalToConstant: (contentView.frame.width)/3),
 
         ])

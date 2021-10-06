@@ -22,7 +22,7 @@ class HomeViewModel: ViewModel {
     
     let metLocation = CLLocation(latitude: 45.5106775, longitude: 12.2321666)
     
-    let dataUrl = URL(string: "https://developer:metide@us-central1-job-interview-cfe5a.cloudfunctions.net/countries")
+    let dataUrl = URL(string: "https://us-central1-job-interview-cfe5a.cloudfunctions.net/countries")
     //MARK: - Init
     
     init(viewController: NotifaiableController) {
@@ -38,7 +38,7 @@ class HomeViewModel: ViewModel {
         }
     }
     
-    func data(for cellAt: IndexPath) -> CountiresList {
+    internal func data(for cellAt: IndexPath) -> CountiresList {
         countriesList[cellAt.row]
     }
     
@@ -96,6 +96,9 @@ class HomeViewModel: ViewModel {
 
             calculateDistance(country: getLocation(lat: $0.latitude ?? "0.0", long: $0.longitude ?? "0.0"), office: metLocation) < calculateDistance(country: getLocation(lat: $1.latitude ?? "0.0", long: $1.longitude ?? "0.0"), office: metLocation)
         }
+    }
+    func sayHello() -> String {
+        return "Hello"
     }
     
     
