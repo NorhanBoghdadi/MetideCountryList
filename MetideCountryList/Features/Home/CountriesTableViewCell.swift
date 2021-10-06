@@ -54,7 +54,7 @@ class CountriesTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: flagImg.trailingAnchor, constant: 10),
-            nameLabel.widthAnchor.constraint(equalToConstant: (contentView.frame.width)/3),
+            nameLabel.widthAnchor.constraint(equalToConstant: (contentView.frame.width)),
 
         ])
         NSLayoutConstraint.activate([
@@ -66,11 +66,17 @@ class CountriesTableViewCell: UITableViewCell {
         
     }
     
+    //MARK: - Configure cell. 
     func configure(for countriesList: CountiresList) {
         try? flagImg.setImage(url: countriesList.flag, placeHolder: UIImage(named: "loading")!)
         nameLabel.text = countriesList.name
         noteTextField.text = countriesList.notes
-        
-        
+        nameLabel.textColor = .black
+        noteTextField.textColor = .black
+        contentView.backgroundColor = UIColor(white: 0.7, alpha: 0.2)
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor(white: 0.7, alpha: 0.2).cgColor
+        contentView.layer.cornerRadius = 10
+
     }
 }

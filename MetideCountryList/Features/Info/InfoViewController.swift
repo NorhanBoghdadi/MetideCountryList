@@ -19,7 +19,8 @@ class InfoViewController: UIViewController {
     var flagImg: UIImageView!
     var nameLabel: UILabel!
     var locationLabel: UILabel!
-    var countryLocation: UILabel! 
+    var countryLocation: UILabel!
+    var newTopView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,19 @@ class InfoViewController: UIViewController {
         view.backgroundColor = .white
         
         // Do any additional setup after loading the view.
-        let newTopView = UIView(frame: CGRect(x: 0, y: 0 , width: Int(view.frame.width), height: Int(view.frame.height) / 3 ))
+        newTopView = UIView(frame: CGRect(x: 0, y: 0 , width: Int(view.frame.width), height: Int(view.frame.height) / 3 ))
         
         newTopView.backgroundColor = UIColor(white: 1, alpha: 0.2)
         newTopView.layer.cornerRadius = 10
         view.addSubview(newTopView)
         
+       
+        setupImageView()
+        setupLabels()
+        
+
+    }
+    func setupImageView() {
         flagImg = UIImageView()
         flagImg.frame = CGRect(x: 0, y: 0, width: (newTopView.frame.height) / 2, height: (newTopView.frame.height) / 2)
         flagImg.layer.cornerRadius = flagImg.layer.bounds.width / 2
@@ -45,7 +53,8 @@ class InfoViewController: UIViewController {
         flagImg.backgroundColor = UIColor(white: 0.8, alpha: 0.2)
         try? flagImg.setImage(url: flagUrl, placeHolder: UIImage(named: "loading")!)
         newTopView.addSubview(flagImg)
-        
+    }
+    func setupLabels() {
         nameLabel = UILabel()
         nameLabel.text = countryName.uppercased()
         nameLabel.textAlignment = .center
@@ -70,8 +79,6 @@ class InfoViewController: UIViewController {
         countryLocation.contentMode = .scaleAspectFit
         countryLocation.frame = CGRect(x: 0, y: (newTopView.frame.height) + 50, width: newTopView.frame.width, height: 100)
         view.addSubview(countryLocation)
-        
-
     }
     
 
