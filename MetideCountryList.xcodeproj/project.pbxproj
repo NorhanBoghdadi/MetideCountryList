@@ -24,6 +24,8 @@
 		51AE57622708857D00FF9E6F /* UIimageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE57612708857D00FF9E6F /* UIimageView+Download.swift */; };
 		51AE5767270885A800FF9E6F /* UIimage+resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE5766270885A800FF9E6F /* UIimage+resize.swift */; };
 		51AE576C27088D6400FF9E6F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AE576B27088D6400FF9E6F /* InfoViewController.swift */; };
+		51D2052D273981370093DE25 /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D2052C273981370093DE25 /* ImageLoaderTests.swift */; };
+		51D20532273985AB0093DE25 /* ar-test in Resources */ = {isa = PBXBuildFile; fileRef = 51D20531273985AB0093DE25 /* ar-test */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		51AE57612708857D00FF9E6F /* UIimageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimageView+Download.swift"; sourceTree = "<group>"; };
 		51AE5766270885A800FF9E6F /* UIimage+resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+resize.swift"; sourceTree = "<group>"; };
 		51AE576B27088D6400FF9E6F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		51D2052C273981370093DE25 /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
+		51D20531273985AB0093DE25 /* ar-test */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ar-test"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				51AE57592708691700FF9E6F /* ImageLoader.swift */,
+				51D2052C273981370093DE25 /* ImageLoaderTests.swift */,
+				51D20531273985AB0093DE25 /* ar-test */,
 				51AE57612708857D00FF9E6F /* UIimageView+Download.swift */,
 				51AE5766270885A800FF9E6F /* UIimage+resize.swift */,
 				51331749270B1F750004B5E0 /* Database.swift */,
@@ -300,6 +306,7 @@
 			files = (
 				512E7432270724FC00754F45 /* LaunchScreen.storyboard in Resources */,
 				512E742F270724FC00754F45 /* Assets.xcassets in Resources */,
+				51D20532273985AB0093DE25 /* ar-test in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51D2052D273981370093DE25 /* ImageLoaderTests.swift in Sources */,
 				512E743D270724FC00754F45 /* MetideCountryListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

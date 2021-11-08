@@ -8,6 +8,7 @@ import Foundation
 // MARK: - CountiresList
 struct CountiresList: Codable {
     let id: ID
+//    let id: Int
     let enabled, code3L, code2L, name: String
     let nameOfficial: String
     let flag: String
