@@ -8,29 +8,38 @@
 import XCTest
 @testable import MetideCountryList
 
+
+class ViewControllerMock  {
+
+}
+extension ViewControllerMock: NotifaiableController {
+    func dataLoaded() {
+        
+    }
+    
+    
+}
+
+
 class MetideCountryListTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    
+//    var fakeData = CountiresList(id: 23, enabled: "hd", code3L: "hdhd", code2L: "dghd", name: "Eg", nameOfficial: "Egypt", flag: "hfdj", latitude: "hdf", longitude: "dhfjhd", zoom: "dhhdhd")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testNumberOfCountriesWhenItsZero() throws  {
+        let sut = HomeViewModel(viewController: ViewControllerMock())
+        XCTAssertEqual(sut.numberOfCountries, 0)
+    
     }
-
-    func testExample() throws {
-        class testView: HomeViewModel {
-            
-        }
-        var viewModel = testView(viewController: HomeViewController())
-        XCTAssertEqual(viewModel.sayHello(), "Hello")
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    
+//    func testNumberOfCountriesWhenHasItems() throws  {
+//        let sut = HomeViewModel(viewController: ViewControllerMock())
+//        
+//        sut.countriesList.append(contentsOf: [CountiresList](repeating: fakeData , count: 10))
+//        XCTAssertEqual(sut.numberOfCountries, 10)
+//        XCTAssertEqual(sut.numberOfCountries, 20)
+//
+//
+//    }
 }
